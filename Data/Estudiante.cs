@@ -1,6 +1,6 @@
-namespace AppEmpresa.Data;
+namespace AppColegio.Data;
 using System.Text.Json.Serialization;
-public class Cliente
+public class Estudiante
     {
         [JsonPropertyName("id")]
         public Int32? Id_clientes { get; set; }

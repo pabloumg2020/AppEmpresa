@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pablo\\Desktop\\8 S\\1 Desarrollo Web\\tareas\\apiRest.NetBlazor\\AppEmpresa\\AppEmpresa.csproj",
-      "projectName": "AppEmpresa",
-      "projectPath": "C:\\Users\\Pablo\\Desktop\\8 S\\1 Desarrollo Web\\tareas\\apiRest.NetBlazor\\AppEmpresa\\AppEmpresa.csproj",
+      "projectUniqueName": "C:\\Users\\Pablo\\Desktop\\8 S\\1 Desarrollo Web\\tareas\\apiRest.NetBlazor\\AppColegio\\AppColegio.csproj",
+      "projectName": "AppColegio",
+      "projectPath": "C:\\Users\\Pablo\\Desktop\\8 S\\1 Desarrollo Web\\tareas\\apiRest.NetBlazor\\AppColegio\\AppColegio.csproj",
       "packagesPath": "C:\\Users\\Pablo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pablo\\Desktop\\8 S\\1 Desarrollo Web\\tareas\\apiRest.NetBlazor\\AppEmpresa\\obj\\",
+      "outputPath": "C:\\Users\\Pablo\\Desktop\\8 S\\1 Desarrollo Web\\tareas\\apiRest.NetBlazor\\AppColegio\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Pablo\\AppData\\Roaming\\NuGet\\NuGet.Config"

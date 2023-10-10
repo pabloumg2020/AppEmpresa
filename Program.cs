@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using AppEmpresa.Data;
+using AppColegio.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,12 +1,12 @@
-@page "/v_cliente"
-@using AppEmpresa.Data
+@page "/v_estudiante"
+@using AppColegio.Data
 @using System.Text.Json
 @using System.Text.Json.Serialization
 @inject IHttpClientFactory ClientFactory
 
-<h1>Formulario de Clientes</h1>
+<h1>Formulario de Estudiantes</h1>
 
-@if (getClienteError || iclientes is null)
+@if (getEstudianteError || iestudiantes is null)
 {
     <p>No se encontro la API.</p>
 }
@@ -40,28 +40,28 @@ else
                 <th>Fecha Nacimiento</th>
             </tr>
         </tbody>
-        @foreach (var cliente in iclientes)
+        @foreach (var estudiante in iestudiantes)
         {
             <tr>
-            <td><button type="button" @onclick = "(() => enviarParametros(cliente.Id_clientes,cliente.Nombres,cliente.Apellidos,cliente.Direccion,cliente.Telefono,cliente.Fecha_nacimiento))" class="btn btn-info"><i class="oi oi-pencil"></i></button></td>
-            <td>@cliente.Nombres</td>
-            <td>@cliente.Apellidos</td>
-            <td>@cliente.Direccion</td>
-            <td>@cliente.Telefono</td>
-            <td>@cliente.Fecha_nacimiento</td>
+            <td><button type="button" @onclick = "(() => enviarParametros(estudiante.Id_estudiantes,estudiante.Nombres,estudiante.Apellidos,estudiante.Direccion,estudiante.Telefono,estudiante.Fecha_nacimiento))" class="btn btn-info"><i class="oi oi-pencil"></i></button></td>
+            <td>@estudiante.Nombres</td>
+            <td>@estudiante.Apellidos</td>
+            <td>@estudiante.Direccion</td>
+            <td>@estudiante.Telefono</td>
+            <td>@estudiante.Fecha_nacimiento</td>
             </tr>
         }
     </table>
 }
 
 @code {
-    private string? url = "https://localhost:7039/api/Clientes";
-    private Int32? var_idcliente;
+    private string? url = "https://localhost:7039/api/Estudiantes";
+    private Int32? var_idestudiante;
     private string? var_nombres, var_apellidos, var_direccion, var_telefono;
     private DateTime? var_fn;
     // Enviar parametros a variables locales
     void enviarParametros(Int32? id, string? nom,string? ape,string? dir,string? tel, DateTime? f){
-        var_idcliente = id;
+        var_idestudiante = id;
         var_nombres = nom;
         var_apellidos = ape;
         var_direccion = dir;
@@ -80,18 +80,18 @@ else
     private async Task Actualizar()
     {
         var client = ClientFactory.CreateClient();
-        var addItem = new Cliente { Id_clientes=var_idcliente,Nombres=var_nombres,Apellidos=var_apellidos,Direccion=var_direccion,Telefono=var_telefono,Fecha_nacimiento=var_fn};
-        await client.PutAsJsonAsync($"{url}/{var_idcliente}", addItem);
+        var addItem = new Estudiante { Id_estudiantes=var_idestudiante,Nombres=var_nombres,Apellidos=var_apellidos,Direccion=var_direccion,Telefono=var_telefono,Fecha_nacimiento=var_fn};
+        await client.PutAsJsonAsync($"{url}/{var_idestudiante}", addItem);
         await OnInitializedAsync();
     }
     // Eliminar
     private async Task Eliminar()
     {
         var client = ClientFactory.CreateClient();
-        await client.DeleteAsync($"{url}/{var_idcliente}");
+        await client.DeleteAsync($"{url}/{var_idestudiante}");
         await OnInitializedAsync();
     }
-    private IEnumerable<Cliente>? iclientes = Array.Empty<Cliente>();
+    private IEnumerable<Estudiante>? iestudiantes = Array.Empty<Estudiante>();
     private bool getClienteError;
     private bool shouldRender;
 
@@ -111,12 +111,12 @@ else
         if (response.IsSuccessStatusCode)
         {
             using var responseStream = await response.Content.ReadAsStreamAsync();
-            iclientes = await JsonSerializer.DeserializeAsync
-                <IEnumerable<Cliente>>(responseStream);
+            iestudiantes = await JsonSerializer.DeserializeAsync
+                <IEnumerable<Estudiante>>(responseStream);
         }
         else
         {
-            getClienteError = true;
+            getEstudianteError = true;
         }
 
         shouldRender = true;
